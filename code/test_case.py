@@ -1,3 +1,4 @@
+# This test file only checks whether the board can display and whether the actions can be successfully taken.
 from board import Board
 from rules import get_valid_moves, get_valid_arrows
 
