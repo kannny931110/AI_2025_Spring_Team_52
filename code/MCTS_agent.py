@@ -29,7 +29,7 @@ class MCTSNode:
         action = self.untried_actions.pop()
         board_copy = copy.deepcopy(self.board)
         board_copy.move(action[0], action[1], self.agent_id)
-        board_copy.arrow_place(action[1], action[2], self.agent_id)  # fixed
+        board_copy.arrow_place(action[1], action[2], self.agent_id)
         board_copy.update_temp_blocks()
         next_player = 3 - self.agent_id
         child_node = MCTSNode(board_copy, next_player, parent=self)
@@ -43,7 +43,7 @@ class MCTSNode:
         for child_node, _ in self.children:
             child_node: MCTSNode = child_node
             if child_node.visits == 0:
-                continue  # 避免除以 0 的錯誤
+                continue
             exploit = child_node.value / child_node.visits
             explore = math.sqrt(2 * math.log(self.visits) / child_node.visits)
             ucb1 = exploit + c_param * explore
@@ -98,7 +98,6 @@ class MCTSAgent:
                 if child == best_child:
                     return action
 
-        # fallback
         return self.fallback_action(board)
 
     def simulate(self, board: Board) -> int:
