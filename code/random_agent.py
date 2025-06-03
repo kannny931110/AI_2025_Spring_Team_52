@@ -1,4 +1,3 @@
-# random_agent.py
 from typing import Tuple
 from board import Board
 from rules import get_valid_moves, get_valid_arrows
