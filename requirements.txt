@@ -1,0 +1,2 @@
+Python version: 3.12
+Packages required: tqdm (used to generate the progress bar, not necessary)
